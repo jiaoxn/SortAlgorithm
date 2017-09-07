@@ -12,6 +12,10 @@ def count_sort(lists):
     Args:
         lists: list
             待排序数组
+
+    Returns:
+        result_lists: list
+            排序好的数组
     """
 
     lists_min = min(lists)  # 待排序数组的最小值
