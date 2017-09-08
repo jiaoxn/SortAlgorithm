@@ -14,7 +14,13 @@ def direct_insert_sort(lists):
             带排序的数组
     """
 
+    if len(lists) == 1:
+        return
+
     for i in range(len(lists)):
+        if lists[i] > lists[i - 1]:
+            break
+
         for j in range(i - 1, -1, -1):
             if lists[j + 1] < lists[j]:
                 lists[j], lists[j + 1] = lists[j + 1], lists[j]
