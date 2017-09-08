@@ -16,14 +16,24 @@ def direct_selection_sort(lists):
                 带排序的数组
     """
 
-    for i in range(len(lists)):
-        for j in range(i + 1, len(lists)):
-            if lists[i] > lists[j]:
-                lists[i], lists[j] = lists[j], lists[i]
+    for i in range(len(lists) - 1):
+        rest_lists = lists[i:]  # 获取尚未进行排序的数组
+
+        min_of_rest_lists = rest_lists[0]  # 获取尚未进行排序数组的最小值
+        min_index_of_rest_lists = i  # 获取尚未进行排序数组的最小值的索引值
+
+        for j in range(len(rest_lists)):
+            if min_of_rest_lists > rest_lists[j]:
+                min_of_rest_lists = rest_lists[j]
+                min_index_of_rest_lists = j
+
+        # 判断最小值是否在待排序数组的第一位，如果不是则交换
+        if lists[i] != min_of_rest_lists:
+            lists[i], lists[min_index_of_rest_lists + i] = lists[min_index_of_rest_lists + i], lists[i]
 
 
 if __name__ == '__main__':
-    print u'直接选择排序示例：\n'
+    print u'直接简单选择排序示例：\n'
 
     array = [9, 1, 2, 5, 7, 4, 8, 6, 3, 5]
     print u'待排序数组：'
