@@ -79,6 +79,7 @@ def radix_sort(lists, radix=10):
         for bucket in buckets:
             lists.extend(bucket)
 
+
 if __name__ == '__main__':
     print u'基数排序示例：\n'
 
